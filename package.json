@@ -23,7 +23,7 @@
     "mac"
   ],
   "author": "ClipVault",
-  "license": "MIT",
+  "license": "MIT WITH Commons-Clause",
   "devDependencies": {
     "electron": "^40.6.0",
     "electron-builder": "^26.0.0",
