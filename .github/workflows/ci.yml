@@ -133,7 +133,7 @@ jobs:
       - run: npm ci
 
       - name: Build DMG (dry-run verification)
-        run: npm run dist:mac
+        run: npx electron-builder --mac dmg --publish never
 
       - name: Verify DMG was created
         run: |
