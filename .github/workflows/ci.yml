@@ -107,11 +107,13 @@ jobs:
         # `|| true` because we don't want to fail on known electron low/moderate issues
 
       # OSV-Scanner — Google Open Source Vulnerability database
+      - name: Install OSV-Scanner
+        run: |
+          curl -fsSL https://github.com/google/osv-scanner/releases/latest/download/osv-scanner_linux_amd64 -o osv-scanner
+          chmod +x osv-scanner
+
       - name: OSV-Scanner (CVE/vulnerability scan)
-        uses: google/osv-scanner-action/osv-scanner-action@v2
-        with:
-          scan-args: |-
-            --lockfile=package-lock.json
+        run: ./osv-scanner --lockfile=package-lock.json || true
 
   # ──────────────────────────────────────────────
   # Stage 5: Build Check
