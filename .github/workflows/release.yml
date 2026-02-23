@@ -62,9 +62,14 @@ jobs:
       - name: Security Audit
         run: npm run security:audit
 
-      # ── Step 4: Build DMG ──
+      # ── Step 4: Build Distributions ──
       - name: Build macOS DMG
         run: npm run dist:mac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Windows EXE
+        run: npm run dist:win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -74,7 +79,9 @@ jobs:
           ls -la dist/
           echo ""
           echo "DMG files:"
-          ls -la dist/*.dmg
+          ls -la dist/*.dmg || echo "No DMG found"
+          echo "EXE files:"
+          ls -la dist/*.exe || echo "No EXE found"
 
       # ── Step 5: Commit Version Bump ──
       - name: Commit version bump
