@@ -57,7 +57,7 @@ jobs:
       # ── Step 2: Update package.json Version ──
       - name: Update package.json version
         run: |
-          npm version ${{ steps.version.outputs.version }} --no-git-tag-version
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
           echo "Updated package.json to version ${{ steps.version.outputs.version }}"
 
       # ── Step 3: Run Quality Gates ──
@@ -90,7 +90,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add package.json package-lock.json
-          git commit -m "chore: bump version to ${{ steps.version.outputs.version }} [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: bump version to ${{ steps.version.outputs.version }} [skip ci]"
           git push
 
       # ── Step 6: Create Tag ──
