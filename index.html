@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ClipVault — A premium clipboard manager for your browser. Keep, search, pin, and reuse your clipboard history effortlessly.">
+  <title>ClipVault — Clipboard Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+          </svg>
+          <h1>ClipVault</h1>
+        </div>
+        <span class="clip-count" id="clipCount">0 clips</span>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="settingsBtn" title="Settings" aria-label="Open settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
+        <button class="icon-btn exit-btn" id="exitBtn" title="Quit ClipVault" aria-label="Quit ClipVault">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+            <line x1="12" y1="2" x2="12" y2="12" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" />
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search clips… (⌘F)" autocomplete="off">
+      <button class="search-clear" id="searchClear" title="Clear search" aria-label="Clear search"
+        style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-tabs">
+        <button class="tab-btn active" data-filter="all" id="tabAll">All</button>
+        <button class="tab-btn" data-filter="pinned" id="tabPinned">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="14" height="14">
+            <path d="M12 2l2.09 6.26L21 9.27l-5 4.87L17.18 21 12 17.27 6.82 21 8 14.14l-5-4.87 6.91-1.01z"
+              fill="currentColor" />
+          </svg>
+          Pinned
+        </button>
+      </div>
+      <button class="clear-all-btn" id="clearAllBtn" title="Clear all clips">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" width="14" height="14">
+          <polyline points="3 6 5 6 21 6" />
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        </svg>
+        Clear All
+      </button>
+    </div>
+
+    <!-- Clip List -->
+    <div class="clip-list" id="clipList">
+      <!-- Clips rendered here by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        <line x1="9" y1="12" x2="15" y2="12" opacity="0.5" />
+        <line x1="9" y1="16" x2="13" y2="16" opacity="0.5" />
+      </svg>
+      <h2 id="emptyTitle">No clips yet</h2>
+      <p id="emptySubtitle">Copy some text and it will appear here automatically.</p>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-overlay" id="settingsOverlay">
+      <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <button class="icon-btn" id="settingsClose" title="Close settings" aria-label="Close settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <div class="settings-body">
+          <div class="setting-item">
+            <label for="maxClips">Maximum clips to store</label>
+            <div class="setting-control">
+              <input type="range" id="maxClips" min="10" max="500" step="10" value="100">
+              <span class="range-value" id="maxClipsValue">100</span>
+            </div>
+          </div>
+          <div class="setting-item">
+            <label for="pollInterval">Clipboard check interval</label>
+            <div class="setting-control">
+              <select id="pollInterval">
+                <option value="500">0.5 seconds</option>
+                <option value="1000" selected>1 second</option>
+                <option value="2000">2 seconds</option>
+                <option value="5000">5 seconds</option>
+              </select>
+            </div>
+          </div>
+          <div class="setting-item">
+            <label for="showTimestamps">Show timestamps</label>
+            <div class="setting-control">
+              <label class="toggle">
+                <input type="checkbox" id="showTimestamps" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-item">
+            <label for="enableSound">Sound on copy</label>
+            <div class="setting-control">
+              <label class="toggle">
+                <input type="checkbox" id="enableSound">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-item" id="startAtLoginItem" style="display:none;">
+            <label for="startAtLogin">Start at login</label>
+            <div class="setting-control">
+              <label class="toggle">
+                <input type="checkbox" id="startAtLogin">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="setting-divider"></div>
+          <div class="setting-item danger">
+            <label>Danger Zone</label>
+            <button class="danger-btn" id="deleteAllDataBtn">Delete All Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="editModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Edit Clip</h3>
+          <button class="icon-btn" id="editModalClose" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <textarea id="editTextarea" rows="8" placeholder="Edit your clip…"></textarea>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" id="editCancel">Cancel</button>
+          <button class="btn btn-primary" id="editSave">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clipboard Permission Banner -->
+    <div class="permission-banner" id="permissionBanner" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="12" />
+        <line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+      <span>Clipboard access is needed. Click <strong>Allow</strong> when prompted, or add clips manually.</span>
+      <button class="btn btn-small" id="requestPermission">Grant Access</button>
+      <button class="icon-btn btn-small" id="dismissBanner" aria-label="Dismiss">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" width="16" height="16">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Manual Add FAB -->
+    <button class="fab" id="addManualBtn" title="Add clip manually" aria-label="Add clip manually">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+        stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    // Detect Electron and add styling class
+    if (typeof process !== 'undefined' && process.versions && process.versions.electron) {
+      document.body.classList.add('electron-mode');
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+
+</html>

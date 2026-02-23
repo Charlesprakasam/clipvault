@@ -1,0 +1,39 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "script"
+    },
+    "rules": {
+        "no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-undef": "error",
+        "no-console": "off",
+        "semi": [
+            "warn",
+            "always"
+        ],
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-new-func": "error",
+        "no-proto": "error",
+        "no-with": "error"
+    },
+    "globals": {
+        "process": "readonly"
+    },
+    "ignorePatterns": [
+        "node_modules/",
+        "dist/",
+        "coverage/"
+    ]
+}
