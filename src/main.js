@@ -165,8 +165,14 @@ ipcMain.on('app-quit', () => {
   app.quit();
 });
 
+const fs = require('fs');
+
 ipcMain.handle('app-version', () => {
-  return app.getVersion();
+  try {
+    return fs.readFileSync(path.join(__dirname, '../version.txt'), 'utf8').trim();
+  } catch (e) {
+    return app.getVersion(); // fallback
+  }
 });
 
 // Login Item (Start at Login)

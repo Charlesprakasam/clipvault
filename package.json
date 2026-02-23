@@ -1,6 +1,6 @@
 {
   "name": "clipvault",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "ClipVault — A premium clipboard manager for your Mac menu bar",
   "main": "src/main.js",
   "scripts": {
@@ -66,7 +66,8 @@
       ]
     },
     "files": [
-      "src/**/*"
+      "src/**/*",
+      "version.txt"
     ],
     "directories": {
       "output": "dist"
