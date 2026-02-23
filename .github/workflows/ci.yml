@@ -61,9 +61,13 @@ jobs:
   # Stage 3: Functional Tests
   # ──────────────────────────────────────────────
   functional-tests:
-    name: 🖥️ Functional Tests
-    runs-on: macos-latest
+    name: 🖥️ Functional Tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
 
@@ -79,6 +83,9 @@ jobs:
 
       - name: Run functional tests
         run: npm run test:functional
+        env:
+          # Required for Electron Playwright testing on Windows in CI
+          PLAYWRIGHT_BROWSERS_PATH: 0
 
   # ──────────────────────────────────────────────
   # Stage 4: Security Scans
