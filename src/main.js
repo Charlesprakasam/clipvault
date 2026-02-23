@@ -165,6 +165,10 @@ ipcMain.on('app-quit', () => {
   app.quit();
 });
 
+ipcMain.handle('app-version', () => {
+  return app.getVersion();
+});
+
 // Login Item (Start at Login)
 ipcMain.handle('login-item-get', () => {
   return app.getLoginItemSettings();
