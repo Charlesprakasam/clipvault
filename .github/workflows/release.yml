@@ -30,35 +30,27 @@ jobs:
 
       - run: npm ci
 
-      # ── Step 1: Determine Next Version ──
-      - name: Determine next version
+      # ── Step 1: Read Version from version.txt ──
+      - name: Read version
         id: version
         run: |
-          # Get the latest tag, default to v0.0.0 if none exists
+          # Read version from version.txt
+          VERSION=$(cat version.txt | tr -d '[:space:]')
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-          echo "Latest tag: $LATEST_TAG"
+          NEW_TAG="v${VERSION}"
 
-          # Parse version components
-          VERSION=${LATEST_TAG#v}
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          echo "Version from file: $VERSION"
+          echo "Tag to create: $NEW_TAG"
 
-          # Increment patch version
-          NEW_PATCH=$((PATCH + 1))
-          NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
-          NEW_TAG="v${NEW_VERSION}"
-
-          echo "New version: $NEW_VERSION"
-          echo "New tag: $NEW_TAG"
-
-          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$NEW_TAG" >> "$GITHUB_OUTPUT"
           echo "previous_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
 
-      # ── Step 2: Update package.json Version ──
-      - name: Update package.json version
+      # ── Step 2: Ensure package.json matches version.txt ──
+      - name: Ensure package.json matches version.txt
         run: |
           npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
-          echo "Updated package.json to version ${{ steps.version.outputs.version }}"
+          echo "Ensured package.json is at version ${{ steps.version.outputs.version }}"
 
       # ── Step 3: Run Quality Gates ──
       - name: Lint

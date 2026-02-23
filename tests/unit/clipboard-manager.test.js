@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load the HTML so jsdom has the right DOM structure
-const html = fs.readFileSync(path.join(__dirname, '../../index.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '../../src/index.html'), 'utf8');
 
 beforeEach(() => {
     // Reset DOM
@@ -22,7 +22,7 @@ beforeEach(() => {
 
 // Helper: load app.js in the current jsdom context
 function loadApp() {
-    const appCode = fs.readFileSync(path.join(__dirname, '../../app.js'), 'utf8');
+    const appCode = fs.readFileSync(path.join(__dirname, '../../src/app.js'), 'utf8');
     // Execute app.js — it attaches window.clipVault on DOMContentLoaded
     eval(appCode);
     // Manually fire DOMContentLoaded since jsdom doesn't auto-fire it after eval

@@ -18,8 +18,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const MAIN_FILE = path.join(__dirname, '../../main.js');
-const APP_FILE = path.join(__dirname, '../../app.js');
+const MAIN_FILE = path.join(__dirname, '../../src/main.js');
+const APP_FILE = path.join(__dirname, '../../src/app.js');
 
 const SEVERITY = {
     CRITICAL: '🔴 CRITICAL',

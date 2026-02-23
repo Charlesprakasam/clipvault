@@ -162,6 +162,17 @@
       } catch (e) {
         this.els.startAtLogin.checked = false;
       }
+
+      // Fetch app version
+      try {
+        const version = await ipcRenderer.invoke('app-version');
+        if (this.els.appVersion) {
+          this.els.appVersion.textContent = `v${version}`;
+        }
+      } catch (e) {
+        console.error('Failed to fetch app version', e);
+      }
+
       // Bind toggle
       this.els.startAtLogin.addEventListener('change', async () => {
         const val = this.els.startAtLogin.checked;
@@ -209,6 +220,7 @@
         addManualBtn: document.getElementById('addManualBtn'),
         startAtLoginItem: document.getElementById('startAtLoginItem'),
         startAtLogin: document.getElementById('startAtLogin'),
+        appVersion: document.getElementById('appVersion'),
         exitBtn: document.getElementById('exitBtn'),
       };
     }

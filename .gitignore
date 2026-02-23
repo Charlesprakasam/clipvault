@@ -5,3 +5,6 @@ dist/
 .DS_Store
 coverage/
 .env
+
+# Developer Documentation
+How-ClipVault-Is-Built.md
