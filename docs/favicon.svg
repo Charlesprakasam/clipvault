@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Clipboard Board -->
+    <rect x="15" y="25" width="70" height="70" rx="12" fill="#8b5cf6"/>
+    
+    <!-- Top Clip Mechanism -->
+    <path d="M 35 15 C 35 8 39 4 44 4 L 56 4 C 61 4 65 8 65 15 L 65 25 L 35 25 Z" fill="#7c3aed"/>
+    <rect x="25" y="20" width="50" height="10" rx="5" fill="#a78bfa"/>
+    
+    <!-- CV Letters -->
+    <text x="50" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="900" fill="#ffffff" text-anchor="middle">CV</text>
+</svg>
