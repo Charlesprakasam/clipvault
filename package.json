@@ -2,11 +2,11 @@
   "name": "clipvault",
   "version": "0.0.1",
   "description": "ClipVault — A premium clipboard manager for your Mac menu bar",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
-    "lint": "eslint main.js app.js",
+    "lint": "eslint src/main.js src/app.js",
     "test": "jest --selectProjects unit",
     "test:functional": "jest --selectProjects functional",
     "test:all": "jest",
@@ -66,11 +66,7 @@
       ]
     },
     "files": [
-      "main.js",
-      "app.js",
-      "index.html",
-      "index.css",
-      "tray-icon.png"
+      "src/**/*"
     ],
     "directories": {
       "output": "dist"

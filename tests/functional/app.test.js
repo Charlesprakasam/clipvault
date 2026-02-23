@@ -15,7 +15,7 @@ describe('ClipVault Electron App', () => {
 
     beforeAll(async () => {
         electronApp = await electron.launch({
-            args: [path.join(__dirname, '../../main.js')],
+            args: [path.join(__dirname, '../../src/main.js')],
             env: {
                 ...process.env,
                 NODE_ENV: 'test',
