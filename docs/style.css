@@ -331,6 +331,20 @@ pre code {
     background: rgba(255, 255, 255, 0.03);
 }
 
+.btn-windows {
+    background: rgba(0, 120, 212, 0.8);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 120, 212, 0.2);
+}
+
+.btn-windows:hover {
+    background: rgba(0, 120, 212, 1);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.3), 0 0 40px rgba(0, 120, 212, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
 .btn-lg {
     padding: 18px 36px;
     font-size: 1.1rem;
