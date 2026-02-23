@@ -15,7 +15,7 @@ jobs:
   release:
     name: 🚀 Build & Release
     runs-on: macos-latest
-    if: github.event.inputs.confirm == 'release'
+    if: github.event.inputs.confirm == 'release' && github.actor == 'Charlesprakasam'
 
     steps:
       - uses: actions/checkout@v4
