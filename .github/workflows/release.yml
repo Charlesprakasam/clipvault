@@ -83,22 +83,13 @@ jobs:
           echo "EXE files:"
           ls -la dist/*.exe || echo "No EXE found"
 
-      # ── Step 5: Commit Version Bump ──
-      - name: Commit version bump
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
-          git diff --cached --quiet || git commit -m "chore: bump version to ${{ steps.version.outputs.version }} [skip ci]"
-          git push origin HEAD:main
-
-      # ── Step 6: Create Tag ──
+      # ── Step 5: Create Tag ──
       - name: Create Git tag
         run: |
           git tag ${{ steps.version.outputs.tag }}
           git push origin ${{ steps.version.outputs.tag }}
 
-      # ── Step 7: Create GitHub Release ──
+      # ── Step 6: Create GitHub Release ──
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -109,14 +100,16 @@ jobs:
 
             ### 📦 Downloads
             - **macOS DMG**: Download the `.dmg` file below
+            - **Windows EXE**: Download the `.exe` installer below
 
             ### 📋 Changes
             See the [commit log](${{ github.server_url }}/${{ github.repository }}/compare/${{ steps.version.outputs.previous_tag }}...${{ steps.version.outputs.tag }}) for details.
 
             ---
-            *Built with Electron on macOS*
+            *Built with Electron across platforms*
           files: |
             dist/*.dmg
+            dist/*.exe
           draft: false
           prerelease: false
         env:
