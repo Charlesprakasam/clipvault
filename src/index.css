@@ -67,7 +67,9 @@
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -106,17 +108,31 @@ body::before {
   max-width: 680px;
   margin: 0 auto;
   padding: var(--space-md);
-  padding-bottom: 100px;
+  padding-bottom: 0;
+  /* removed so list scrolls full length */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
   background: var(--text-tertiary);
   border-radius: var(--radius-full);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
 
 /* --- Header --- */
 .app-header {
@@ -347,6 +363,12 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+  /* buffer for bottom of list */
+  padding-right: 4px;
+  /* buffer for scrollbar */
 }
 
 /* --- Clip Card --- */
@@ -393,6 +415,7 @@ body::before {
     opacity: 0;
     transform: translateY(-8px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -521,9 +544,20 @@ body::before {
 }
 
 @keyframes copiedPulse {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  30% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* --- Empty State --- */
@@ -695,7 +729,11 @@ select:focus {
   height: 24px;
 }
 
-.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
 .toggle-slider {
   position: absolute;
@@ -719,12 +757,12 @@ select:focus {
   transition: all var(--duration-normal) var(--ease-spring);
 }
 
-.toggle input:checked + .toggle-slider {
+.toggle input:checked+.toggle-slider {
   background: var(--accent);
   border-color: var(--accent);
 }
 
-.toggle input:checked + .toggle-slider::before {
+.toggle input:checked+.toggle-slider::before {
   transform: translateX(18px);
   background: #fff;
 }
@@ -903,8 +941,13 @@ select:focus {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.toast.success { border-color: rgba(0, 206, 201, 0.3); }
-.toast.error { border-color: rgba(231, 76, 60, 0.3); }
+.toast.success {
+  border-color: rgba(0, 206, 201, 0.3);
+}
+
+.toast.error {
+  border-color: rgba(231, 76, 60, 0.3);
+}
 
 .toast.out {
   animation: toastOut var(--duration-fast) var(--ease-out) forwards;
@@ -916,16 +959,31 @@ select:focus {
   flex-shrink: 0;
 }
 
-.toast.success .toast-icon { color: var(--success); }
-.toast.error .toast-icon { color: var(--danger); }
+.toast.success .toast-icon {
+  color: var(--success);
+}
+
+.toast.error .toast-icon {
+  color: var(--danger);
+}
 
 @keyframes toastIn {
-  from { opacity: 0; transform: translateY(10px) scale(0.9); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes toastOut {
-  to { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+  }
 }
 
 /* --- Permission Banner --- */

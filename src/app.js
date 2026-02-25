@@ -474,10 +474,19 @@
 
     saveEdit() {
       if (!this.editingClipId) return;
-      const clip = this.clips.find(c => c.id === this.editingClipId);
-      if (clip) {
-        const newText = this.els.editTextarea.value.trim();
-        if (newText) {
+
+      const newText = this.els.editTextarea.value.trim();
+      if (!newText) {
+        this.closeEditModal();
+        return;
+      }
+
+      if (this.editingClipId === 'NEW') {
+        this.addClip(newText);
+        this.showToast('Clip added manually', 'success');
+      } else {
+        const clip = this.clips.find(c => c.id === this.editingClipId);
+        if (clip) {
           clip.text = newText;
           this.saveClips();
           this.render();
@@ -502,11 +511,10 @@
     }
 
     addManualClip() {
-      const text = prompt('Enter text to add as a clip:');
-      if (text && text.trim()) {
-        this.addClip(text.trim());
-        this.showToast('Clip added manually', 'success');
-      }
+      this.editingClipId = 'NEW';
+      this.els.editTextarea.value = '';
+      this.els.editModal.classList.add('open');
+      setTimeout(() => this.els.editTextarea.focus(), 200);
     }
 
     enforceMaxClips() {

@@ -91,6 +91,25 @@ const fs = require('fs');
         if (!isFocused) throw new Error('Cmd+F shortcut failed to focus search bar!');
         console.log('✅ Keyboard shortcuts verified.');
 
+        // 6. Test Add Manual Button flow
+        console.log('➕ Testing Add Manual Button flow...');
+        await window.click('#addManualBtn');
+        await new Promise(r => setTimeout(r, 600)); // wait for modal animation
+
+        const isModalOpen = await window.locator('#editModal').evaluate(el => el.classList.contains('open'));
+        if (!isModalOpen) throw new Error('Add Manual modal did not open!');
+
+        await window.fill('#editTextarea', 'This is a brand new clip added purely by clicking the plus button.');
+        await window.screenshot({ path: path.join(__dirname, '..', 'docs', 'e2e-add-manual.png') });
+
+        await window.click('#editSave');
+        await new Promise(r => setTimeout(r, 600)); // wait for modal to close and list to render
+
+        const firstClipText = await window.locator('.clip-card:first-child .clip-text').textContent();
+        console.log(`   First clip text: ${firstClipText}`);
+        if (!firstClipText.includes('purely by clicking the plus button')) throw new Error('Add Manual failed to actually inject the clip!');
+        console.log('✅ Add Manual flow verified.');
+
         console.log('🎉 ALL E2E TESTS PASSED SUCCESSFULLY!');
     } catch (error) {
         console.error('❌ E2E TEST FAILED:', error);
