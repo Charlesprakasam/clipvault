@@ -82,7 +82,8 @@
       "applicationId": "ClipVault",
       "identityName": "ClipVault",
       "publisher": "CN=ClipVault",
-      "publisherDisplayName": "ClipVault"
+      "publisherDisplayName": "ClipVault",
+      "artifactName": "ClipVault-${version}-Windows.${ext}"
     },
     "files": [
       "src/**/*",

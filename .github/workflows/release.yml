@@ -12,15 +12,16 @@ permissions:
   contents: write
 
 jobs:
-  release:
-    name: 🚀 Build & Release
+  build-mac:
+    name: 🍏 Build Mac & Release
     runs-on: macos-latest
     if: github.event.inputs.confirm == 'release' && github.actor == 'Charlesprakasam'
-
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Full history for tag detection
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
@@ -30,72 +31,36 @@ jobs:
 
       - run: npm ci
 
-      # ── Step 1: Read Version from version.txt ──
       - name: Read version
         id: version
         run: |
-          # Read version from version.txt
           VERSION=$(cat version.txt | tr -d '[:space:]')
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
           NEW_TAG="v${VERSION}"
-
-          echo "Version from file: $VERSION"
-          echo "Tag to create: $NEW_TAG"
-
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$NEW_TAG" >> "$GITHUB_OUTPUT"
           echo "previous_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
 
-      # ── Step 2: Ensure package.json matches version.txt ──
       - name: Ensure package.json matches version.txt
         run: |
           npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
-          echo "Ensured package.json is at version ${{ steps.version.outputs.version }}"
 
-      # ── Step 3: Run Quality Gates ──
-      - name: Lint
-        run: npm run lint
+      - name: Run Quality Gates
+        run: |
+          npm run lint
+          npm test
+          npm run security:audit
 
-      - name: Unit Tests
-        run: npm test
-
-      - name: Security Audit
-        run: npm run security:audit
-
-      # ── Step 4: Build Distributions ──
       - name: Build macOS DMG
         run: npm run dist:mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Windows MSIX
-        run: |
-          npm run dist:win
-          for file in dist/*.appx; do
-            if [ -f "$file" ]; then
-              mv "$file" "${file%.appx}.msix"
-            fi
-          done
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: List build output
-        run: |
-          echo "Build artifacts:"
-          ls -la dist/
-          echo ""
-          echo "DMG files:"
-          ls -la dist/*.dmg || echo "No DMG found"
-          echo "MSIX files:"
-          ls -la dist/*.msix || echo "No MSIX found"
-
-      # ── Step 5: Create Tag ──
       - name: Create Git tag
         run: |
-          git tag ${{ steps.version.outputs.tag }}
-          git push origin ${{ steps.version.outputs.tag }}
+          git tag ${{ steps.version.outputs.tag }} || true
+          git push origin ${{ steps.version.outputs.tag }} || true
 
-      # ── Step 6: Create GitHub Release ──
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -109,14 +74,46 @@ jobs:
             - **Windows MSIX**: Download the `.msix` modern app package below
 
             ### 📋 Changes
-            See the [commit log](${{ github.server_url }}/${{ github.repository }}/compare/${{ steps.version.outputs.previous_tag }}...${{ steps.version.outputs.tag }}) for details.
-
-            ---
-            *Built with Electron across platforms*
-          files: |
-            dist/*.dmg
-            dist/*.msix
+            See the commit log for details.
+          files: dist/*.dmg
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-win:
+    name: 🪟 Build Windows MSIX
+    runs-on: windows-latest
+    needs: build-mac
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build-mac.outputs.tag }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build Windows AppX & Convert to MSIX
+        shell: bash
+        run: |
+          npm run dist:win
+          for file in dist/*.appx; do
+            if [ -f "$file" ]; then
+              mv "$file" "${file%.appx}.msix"
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Attach MSIX to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build-mac.outputs.tag }}
+          files: dist/*.msix
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
