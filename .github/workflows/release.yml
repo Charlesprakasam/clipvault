@@ -80,8 +80,8 @@ jobs:
           echo ""
           echo "DMG files:"
           ls -la dist/*.dmg || echo "No DMG found"
-          echo "EXE files:"
-          ls -la dist/*.exe || echo "No EXE found"
+          echo "MSIX files:"
+          ls -la dist/*.msix || echo "No MSIX found"
 
       # ── Step 5: Create Tag ──
       - name: Create Git tag
@@ -100,7 +100,7 @@ jobs:
 
             ### 📦 Downloads
             - **macOS DMG**: Download the `.dmg` file below
-            - **Windows EXE**: Download the `.exe` installer below
+            - **Windows MSIX**: Download the `.msix` modern app package below
 
             ### 📋 Changes
             See the [commit log](${{ github.server_url }}/${{ github.repository }}/compare/${{ steps.version.outputs.previous_tag }}...${{ steps.version.outputs.tag }}) for details.
@@ -109,7 +109,7 @@ jobs:
             *Built with Electron across platforms*
           files: |
             dist/*.dmg
-            dist/*.exe
+            dist/*.msix
           draft: false
           prerelease: false
         env:

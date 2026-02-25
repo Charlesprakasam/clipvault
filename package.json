@@ -70,13 +70,7 @@
     "win": {
       "target": [
         {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "portable",
+          "target": "msix",
           "arch": [
             "x64"
           ]
@@ -84,15 +78,20 @@
       ],
       "icon": "build/icon.ico"
     },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": false,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "ClipVault"
+    "appx": {
+      "applicationId": "ClipVault",
+      "identityName": "ClipVault",
+      "publisher": "CN=ClipVault",
+      "publisherDisplayName": "ClipVault"
     },
     "files": [
+      "src/**/*",
+      "version.txt"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+"files": [
       "src/**/*",
       "version.txt"
     ],
