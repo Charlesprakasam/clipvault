@@ -91,12 +91,5 @@
     "directories": {
       "output": "dist"
     }
-"files": [
-      "src/**/*",
-      "version.txt"
-    ],
-    "directories": {
-      "output": "dist"
-    }
   }
 }
