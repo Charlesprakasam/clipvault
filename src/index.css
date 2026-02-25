@@ -1094,7 +1094,7 @@ body.electron-mode::after {
 
 body.electron-mode {
   border-radius: 12px;
-  overflow: hidden;
+  /* no overflow:hidden — let .clip-list scroll naturally */
 }
 
 /* Draggable title bar region */
@@ -1110,7 +1110,8 @@ body.electron-mode .app-header button {
 
 body.electron-mode #app {
   padding: var(--space-sm) var(--space-md);
-  padding-bottom: 70px;
+  padding-bottom: 0;
+  /* clip-list has its own bottom padding */
 }
 
 body.electron-mode .search-bar {
