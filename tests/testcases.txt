@@ -1,0 +1,78 @@
+CLIPVAULT - COMPREHENSIVE TEST CASES
+
+This document outlines the complete testing strategy for ClipVault, including Unit Tests (for internal core logic) and Functional / End-to-End Tests (for user-facing workflows and GUI interactions).
+
+================================================================================
+PART 1: UNIT TEST CASES (Core Logic & State Management)
+Tested via Jest / Node.js
+================================================================================
+
+1. ClipboardManager Initialization
+   1.1. Should initialize with default settings when localStorage is empty.
+   1.2. Should correctly parse and load existing clips from localStorage.
+   1.3. Should gracefully handle corrupted or invalid JSON in localStorage.
+   1.4. Should dynamically merge missing setting keys with default settings.
+   
+2. Clip Addition & Duplication
+   2.1. Should add a new clip to the top (index 0) of the list.
+   2.2. Should actively ignore duplicate clips if the new text matches the most recent clip.
+   2.3. Should accurately assign a unique, randomly generated ID to every new clip.
+   2.4. Should correctly append 'pinned: false' status by default to new clips.
+
+3. Clip Deletion & Pinning
+   3.1. Should successfully delete a clip by its unique ID.
+   3.2. Should correctly toggle the 'pinned' boolean state of a clip from true to false and vice versa.
+   3.3. 'Clear All' should successfully delete all unpinned clips.
+   3.4. 'Clear All' should never delete or modify clips with a 'pinned: true' state.
+
+4. Max Clips Enforcement (Capacity Limits)
+   4.1. Should automatically evict the oldest unpinned clip when the total clip count exceeds the 'maxClips' setting.
+   4.2. Should correctly preserve all pinned clips, even if the total capacity is reached, and only evict unpinned clips.
+   4.3. Should correctly update the internal state and trigger save operations when eviction occurs.
+
+5. Search & Filtering
+   5.1. Should return the full list of clips when the search query is empty and filter is 'all'.
+   5.2. Should return only pinned clips when the filter constraint is set to 'pinned'.
+   5.3. Should perform case-insensitive substring matching on clip text when a search query is active.
+   5.4. Should correctly sort returned clips logically: Pinned clips first, followed by unpinned clips ordered by newest timestamp.
+
+================================================================================
+PART 2: FUNCTIONAL / END-TO-END TEST CASES (UI, IPC, & Integration)
+Tested via Playwright / Electron
+================================================================================
+
+6. Global OS Integrations
+   6.1. System Tray hook should successfully register and maintain state.
+   6.2. Left-clicking the Tray icon should map to 'toggleWindow()' and display the UI at the mouse coordinates.
+   6.3. Right-clicking the Tray icon should also map to 'toggleWindow()' predictably.
+   6.4. The global keyboard shortcut (Cmd+Shift+V or Ctrl+Shift+V) should successfully intercept OS strokes and toggle the main window irrespective of which application has focus.
+
+7. Application Window State
+   7.1. Window should automatically hide (blur) when the user clicks outside of the bounds natively.
+   7.2. Window should not trigger process exit constraints when closed; it should gracefully hide in the background.
+   7.3. On application initialization, the window should remain hidden until explicitly invoked by the user or tray.
+
+8. User Interface Interactions
+   8.1. Clicking the 'Pin' icon on a clip card should inject the CSS class '.pinned' and reposition the item.
+   8.2. Clicking the 'Trash' (Delete) icon on a clip card should trigger the CSS '.deleting' exit animation before DOM removal.
+   8.3. Copying a clip via click should execute native clipboard APIs, trigger a visual '.copied' flash, and prevent registering as a new duplicate clip.
+   8.4. Clicking the '+' (Add Manual Clip) button should trigger the Edit Modal overlay.
+   8.5. Entering text into the Edit Modal and clicking 'Save' on a 'NEW' clip should successfully inject the text into the top of the UI list.
+
+9. Search & Filtering Interactivity
+   9.1. Entering text into the search bar should dynamically hide non-matching `.clip-card` nodes purely via DOM updates.
+   9.2. Executing global 'Cmd+F' or 'Ctrl+F' should programmatically steal focus and highlight the '#searchInput' box.
+   9.3. Clicking the 'x' button inside the active search box should clear the query state and successfully unhide all matching nodes.
+   9.4. Clicking 'Pinned' and 'All' tabs should instantly toggle DOM visibility for unpinned elements without dropping scroll state.
+
+10. Settings Control Panel
+    10.1. Clicking the Settings Gear icon should smoothly invoke the native modal properties overlay.
+    10.2. Changing the 'Max Clips' slider should visually update the number text display in real-time.
+    10.3. Invoking the Settings Panel should successfully display the semantic version (e.g., 'v0.1.6') routed from the IPC main process.
+    10.4. Toggling the 'Start At Login' selector should intercept the Electron native 'app.setLoginItemSettings()' natively with accurate booleans.
+    10.5. Toggling 'Sound on Copy' should successfully mute or enable the native HTML5 audio execution node on subsequent copy events.
+
+11. Overflow & Layout Spacing
+    11.1. Pushing 50+ consecutive clips into the list should constrain 'height' structurally, enabling a scrollbar inside '.clip-list'.
+    11.2. Scrolling action inside the clip list should completely isolate layout drift, leaving the top header and search bar statically pinned (100vh lock).
+    11.3. Long character sequences strings without spaces should dynamically wrap with 'word-break: break-word' without horizontally overflowing the card boundary.
