@@ -2,7 +2,9 @@
 
 > A premium, open-source clipboard manager for your Mac menu bar.
 
-![App Mockup](https://charlesprakasam.github.io/clipvault/app-mockup.png) <!-- Or replace with actual hero image if available -->
+<p align="center">
+  <img src="https://charlesprakasam.github.io/clipvault/app-mockup.png" alt="ClipVault App" width="380" />
+</p>
 
 Never lose a copied text ever again. ClipVault lives in your Mac menu bar, silently capturing every text you copy. Search, pin, edit, and reuse your clipboard history — all with a single shortcut (`⌘⇧V`).
 
