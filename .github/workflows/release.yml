@@ -71,7 +71,8 @@ jobs:
 
             ### 📦 Downloads
             - **macOS DMG**: Download the `.dmg` file below
-            - **Windows MSIX**: Download the `.msix` modern app package below
+            - **Windows EXE**: Download the `.exe` installer below
+            - **Windows MSIX**: Download the `.msix` modern app package below (Microsoft Store)
 
             ### 📋 Changes
             See the commit log for details.
@@ -110,10 +111,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Attach MSIX to GitHub Release
+      - name: Attach EXE and MSIX to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build-mac.outputs.tag }}
-          files: dist/*.msix
+          files: |
+            dist/*.msix
+            dist/*.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
