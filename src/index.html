@@ -171,62 +171,63 @@
           </div>
           <div class="settings-footer"
             style="text-align: center; margin-top: 1.5rem; color: #8a8f98; font-size: 0.75rem;">
-            ClipVault <span id="appVersion">Web</span>
+            ClipVault <span id="appVersion"></span>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
 
-    <!-- Edit Modal -->
-    <div class="modal-overlay" id="editModal">
-      <div class="modal">
-        <div class="modal-header">
-          <h3>Edit Clip</h3>
-          <button class="icon-btn" id="editModalClose" aria-label="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-        <textarea id="editTextarea" rows="8" placeholder="Edit your clip…"></textarea>
-        <div class="modal-actions">
-          <button class="btn btn-ghost" id="editCancel">Cancel</button>
-          <button class="btn btn-primary" id="editSave">Save Changes</button>
-        </div>
+  <!-- Edit Modal -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Edit Clip</h3>
+        <button class="icon-btn" id="editModalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <textarea id="editTextarea" rows="8" placeholder="Edit your clip…"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="editCancel">Cancel</button>
+        <button class="btn btn-primary" id="editSave">Save Changes</button>
       </div>
     </div>
+  </div>
 
-    <!-- Clipboard Permission Banner -->
-    <div class="permission-banner" id="permissionBanner" style="display:none;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" y1="8" x2="12" y2="12" />
-        <line x1="12" y1="16" x2="12.01" y2="16" />
-      </svg>
-      <span>Clipboard access is needed. Click <strong>Allow</strong> when prompted, or add clips manually.</span>
-      <button class="btn btn-small" id="requestPermission">Grant Access</button>
-      <button class="icon-btn btn-small" id="dismissBanner" aria-label="Dismiss">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" width="16" height="16">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Manual Add FAB -->
-    <button class="fab" id="addManualBtn" title="Add clip manually" aria-label="Add clip manually">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-        stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <line x1="5" y1="12" x2="19" y2="12" />
+  <!-- Clipboard Permission Banner -->
+  <div class="permission-banner" id="permissionBanner" style="display:none;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+    <span>Clipboard access is needed. Click <strong>Allow</strong> when prompted, or add clips manually.</span>
+    <button class="btn btn-small" id="requestPermission">Grant Access</button>
+    <button class="icon-btn btn-small" id="dismissBanner" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" width="16" height="16">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
+  </div>
+
+  <!-- Manual Add FAB -->
+  <button class="fab" id="addManualBtn" title="Add clip manually" aria-label="Add clip manually">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  </button>
   </div>
 
   <script>
