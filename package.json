@@ -70,7 +70,7 @@
     "win": {
       "target": [
         {
-          "target": "msix",
+          "target": "appx",
           "arch": [
             "x64"
           ]

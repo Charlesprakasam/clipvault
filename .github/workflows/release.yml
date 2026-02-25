@@ -68,8 +68,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Windows EXE
-        run: npm run dist:win
+      - name: Build Windows MSIX
+        run: |
+          npm run dist:win
+          for file in dist/*.appx; do
+            if [ -f "$file" ]; then
+              mv "$file" "${file%.appx}.msix"
+            fi
+          done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
