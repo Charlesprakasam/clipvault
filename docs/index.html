@@ -5,56 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="ClipVault — A premium open-source clipboard manager for your Mac menu bar. Keep, search, pin, and reuse your clipboard history effortlessly.">
-    <meta name="keywords" content="clipboard manager, mac, menu bar, clipboard history, productivity, open source">
-    <meta name="author" content="ClipVault Contributors">
-    <meta property="og:title" content="ClipVault — Clipboard Manager for macOS">
-    <meta property="og:description" content="Never lose a copied text again. ClipVault lives in your menu bar.">
+        content="AILoopLabs — Open source tools built for developers. Productivity, AI, data, and DevOps — all free and community-driven.">
+    <meta name="keywords"
+        content="open source, developer tools, AI, productivity, data engineering, devops, free software">
+    <meta name="author" content="AILoopLabs">
+    <meta property="og:title" content="AILoopLabs — Open Source Tools for Developers">
+    <meta property="og:description" content="Free, community-driven developer tools. No vendor lock-in. Just ship.">
     <meta property="og:type" content="website">
-    <title>ClipVault — Premium Clipboard Manager for macOS</title>
+    <title>AILoopLabs — Open Source Tools for Developers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="alternate icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ailooplabs.css">
 </head>
 
 <body>
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Navigation -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ═══ Navigation ═══ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" width="24" height="24">
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-                </svg>
-                ClipVault
+                <div class="logo-icon">A</div>
+                AILoopLabs
             </a>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#use-cases">Use Cases</a>
-                <a href="#docs">Documentation</a>
-                <a href="https://github.com/Charlesprakasam/clipvault" target="_blank" class="nav-github">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                        <path
-                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest"
-                    class="btn-download-nav">Download</a>
+                <a href="#products">Products</a>
+                <a href="#why">Why Open Source</a>
+                <a href="https://github.com/Charlesprakasam" target="_blank">GitHub</a>
+                <a href="#cta" class="btn-nav-cta">Get Started</a>
             </div>
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Hero Section -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ═══ Hero Section ═══ -->
     <section class="hero">
         <div class="hero-bg">
             <div class="orb orb-1"></div>
@@ -62,464 +45,283 @@
             <div class="orb orb-3"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-badge">Open Source · MIT License · macOS & Windows</div>
-            <h1>Never lose a copied text<br><span class="gradient-text">ever again.</span></h1>
-            <p class="hero-subtitle">ClipVault lives in your Mac menu bar, silently capturing every text you copy.
-                Search,
-                pin, edit, and reuse your clipboard history — all with a single shortcut.</p>
+            <div class="hero-badge">100% Open Source · MIT License · Community Driven</div>
+            <h1>Build better with<br><span class="gradient-text">open source tools.</span></h1>
+            <p class="hero-subtitle">AILoopLabs crafts free, premium-quality developer tools — from clipboard managers
+                to AI pipelines. No vendor lock-in, no telemetry, no compromises.</p>
             <div class="hero-actions">
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault-0.1.7-arm64.dmg"
-                    class="btn btn-primary">
+                <a href="#products" class="btn btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
                     </svg>
-                    Download for Mac
+                    Explore Products
                 </a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault.Setup.0.1.7.exe"
-                    class="btn btn-windows" style="background: rgba(0, 120, 212, 0.4);">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
+                <a href="https://github.com/Charlesprakasam" class="btn btn-ghost" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                     </svg>
-                    Win (.exe)
-                </a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault-0.1.7-Windows.msix"
-                    class="btn btn-windows">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <rect x="2" y="2" width="9" height="9" />
-                        <rect x="13" y="2" width="9" height="9" />
-                        <rect x="2" y="13" width="9" height="9" />
-                        <rect x="13" y="13" width="9" height="9" />
-                    </svg>
-                    Win (.msix)
-                </a>
-                <a href="https://github.com/Charlesprakasam/clipvault" class="btn btn-ghost" target="_blank">
                     View on GitHub →
                 </a>
             </div>
-            <div class="hero-shortcut">
-                <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>V</kbd> (Mac) &nbsp;|&nbsp; <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
-                <kbd>V</kbd> (Win)
-            </div>
         </div>
+    </section>
 
-        <!-- App mockup -->
-        <div class="hero-mockup">
-            <div class="mockup-window">
-                <div class="mockup-header">
-                    <div class="mockup-logo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                            height="16">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-                        </svg>
-                        <span>ClipVault</span>
-                    </div>
-                    <span class="mockup-badge">5 clips</span>
-                </div>
-                <div class="mockup-search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                    <span>Search clips… (⌘F)</span>
-                </div>
-                <div class="mockup-tabs">
-                    <span class="tab-active">All</span>
-                    <span>★ Pinned</span>
-                </div>
-                <div class="mockup-clip pinned">
-                    <div class="mockup-clip-text">const API_KEY = "sk-proj-abc123..."</div>
-                    <div class="mockup-clip-meta">★ pinned · 2m ago · 38 chars</div>
-                </div>
-                <div class="mockup-clip">
-                    <div class="mockup-clip-text">Meeting notes: Q1 roadmap review...</div>
-                    <div class="mockup-clip-meta">5m ago · 247 chars</div>
-                </div>
-                <div class="mockup-clip">
-                    <div class="mockup-clip-text">ssh -i ~/.ssh/id_ed25519 deploy@prod</div>
-                    <div class="mockup-clip-meta">12m ago · 39 chars</div>
-                </div>
-                <div class="mockup-clip fade">
-                    <div class="mockup-clip-text">https://github.com/Charlesprakasam/clip...</div>
-                    <div class="mockup-clip-meta">1h ago · 52 chars</div>
-                </div>
+    <!-- ═══ Stats Bar ═══ -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat">
+                <div class="stat-value"><span class="gradient-text">6+</span></div>
+                <div class="stat-label">Open Source Projects</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value"><span class="gradient-text">100%</span></div>
+                <div class="stat-label">Free & MIT Licensed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value"><span class="gradient-text">0</span></div>
+                <div class="stat-label">Telemetry & Tracking</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value"><span class="gradient-text">∞</span></div>
+                <div class="stat-label">Community Contributions</div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Features Section -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="features" id="features">
+    <!-- ═══ Products Section ═══ -->
+    <section class="products" id="products">
         <div class="section-inner">
             <div class="section-header">
-                <span class="section-label">Features</span>
-                <h2>Everything you need,<br>nothing you don't.</h2>
-                <p>ClipVault is designed to be invisible until you need it — then it's right there.</p>
+                <span class="section-label">Products</span>
+                <h2>Tools that respect<br>your freedom.</h2>
+                <p>Every product is open source, privacy-first, and built to solve real developer pain points.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="M21 21l-4.35-4.35" />
-                        </svg>
+            <div class="products-grid">
+
+                <!-- Product 1: ClipVault -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon clipboard">📋</div>
+                        <h3>ClipVault</h3>
+                        <span class="product-status status-live">Live</span>
                     </div>
-                    <h3>Instant Search</h3>
-                    <p>Find any clip instantly. Full-text search with real-time highlighting across your entire history.
+                    <div class="product-card-body">
+                        <p>A premium clipboard manager for macOS & Windows. Lives in your menu bar — search, pin, edit,
+                            and reuse your clipboard history with a single shortcut.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Electron</span>
+                            <span class="product-tag">macOS</span>
+                            <span class="product-tag">Windows</span>
+                            <span class="product-tag">Productivity</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="clipvault.html" class="product-link">Learn More →</a>
+                        <span class="product-stars">⭐ Featured</span>
+                    </div>
+                </div>
+
+                <!-- Product 2: LoopAI -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon ai">🤖</div>
+                        <h3>LoopAI</h3>
+                        <span class="product-status status-beta">Beta</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p>Local-first AI assistant that runs entirely on your machine. Chat with your codebase,
+                            generate
+                            documentation, and automate refactoring — zero cloud dependency.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Python</span>
+                            <span class="product-tag">LLM</span>
+                            <span class="product-tag">Local AI</span>
+                            <span class="product-tag">CLI</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="#" class="product-link">View Project →</a>
+                        <span class="product-stars">🧪 In Beta</span>
+                    </div>
+                </div>
+
+                <!-- Product 3: DataForge -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon data">📊</div>
+                        <h3>DataForge</h3>
+                        <span class="product-status status-soon">Coming Soon</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p>A lightweight ETL pipeline builder with a visual drag-and-drop interface. Connect databases,
+                            APIs, and files with zero boilerplate code required.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Node.js</span>
+                            <span class="product-tag">ETL</span>
+                            <span class="product-tag">Data Pipelines</span>
+                            <span class="product-tag">Visual</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="#" class="product-link">Notify Me →</a>
+                        <span class="product-stars">🚀 Launching Q2</span>
+                    </div>
+                </div>
+
+                <!-- Product 4: FlowCI -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon workflow">⚡</div>
+                        <h3>FlowCI</h3>
+                        <span class="product-status status-soon">Coming Soon</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p>GitHub Actions on steroids. Define CI/CD workflows with a YAML-free visual editor, built-in
+                            secret management, and multi-cloud deploy support.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">CI/CD</span>
+                            <span class="product-tag">DevOps</span>
+                            <span class="product-tag">Multi-Cloud</span>
+                            <span class="product-tag">Visual</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="#" class="product-link">Notify Me →</a>
+                        <span class="product-stars">🔧 In Development</span>
+                    </div>
+                </div>
+
+                <!-- Product 5: WatchTower -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon monitor">🔍</div>
+                        <h3>WatchTower</h3>
+                        <span class="product-status status-beta">Beta</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p>Self-hosted uptime monitoring & alerting dashboard. Track API health, SSL certs, cron jobs,
+                            and response times with beautiful real-time charts.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Monitoring</span>
+                            <span class="product-tag">Self-Hosted</span>
+                            <span class="product-tag">Alerts</span>
+                            <span class="product-tag">Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="#" class="product-link">View Project →</a>
+                        <span class="product-stars">📈 Growing</span>
+                    </div>
+                </div>
+
+                <!-- Product 6: ShipDock -->
+                <div class="product-card">
+                    <div class="product-card-header">
+                        <div class="product-icon deploy">🐳</div>
+                        <h3>ShipDock</h3>
+                        <span class="product-status status-soon">Coming Soon</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p>One-click Docker deployments for your side projects. Auto-generates Dockerfiles, compose
+                            configs, and Kubernetes manifests from your repo structure.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Docker</span>
+                            <span class="product-tag">Kubernetes</span>
+                            <span class="product-tag">Deploy</span>
+                            <span class="product-tag">CLI</span>
+                        </div>
+                    </div>
+                    <div class="product-card-footer">
+                        <a href="#" class="product-link">Notify Me →</a>
+                        <span class="product-stars">🏗️ Planning</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Why Open Source ═══ -->
+    <section class="why-section" id="why">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Why Open Source</span>
+                <h2>We believe in<br><span class="gradient-text">building in the open.</span></h2>
+                <p>Every line of code is public. Every decision is transparent. Here's why that matters.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-emoji">🔓</div>
+                    <h3>No Vendor Lock-in</h3>
+                    <p>Fork it, modify it, self-host it. Your tools should work for you, not the other way around.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-emoji">🛡️</div>
+                    <h3>Privacy by Design</h3>
+                    <p>Zero telemetry, no cloud calls, no analytics. Your data stays on your machine. Period.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-emoji">🤝</div>
+                    <h3>Community Driven</h3>
+                    <p>Features are built by real users. Submit PRs, open issues, vote on the roadmap.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-emoji">⚡</div>
+                    <h3>Built for Speed</h3>
+                    <p>Lean, opinionated, and fast. No bloat, no unnecessary abstractions, no enterprise overhead.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-emoji">🎓</div>
+                    <h3>Learn & Grow</h3>
+                    <p>Read the source, understand the architecture, contribute back. Open source is the best teacher.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <path
-                                d="M12 2l2.09 6.26L21 9.27l-5 4.87L17.18 21 12 17.27 6.82 21 8 14.14l-5-4.87 6.91-1.01z" />
-                        </svg>
-                    </div>
-                    <h3>Pin Important Clips</h3>
-                    <p>Star clips you use frequently. Pinned clips stay at the top and survive "Clear All".</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                            <line x1="8" y1="21" x2="16" y2="21" />
-                            <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                    </div>
-                    <h3>Menu Bar Native</h3>
-                    <p>Lives in your menu bar. No dock icon, no window switching. Just click the tray icon or press ⌘⇧V.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                        </svg>
-                    </div>
-                    <h3>Edit Clips</h3>
-                    <p>Modify any clip before pasting. Perfect for fixing typos or tweaking snippets.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
-                    <h3>Privacy First</h3>
-                    <p>All data stays on your machine in localStorage. No cloud, no servers, no tracking. Ever.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                            height="28">
-                            <circle cx="12" cy="12" r="3" />
-                            <path
-                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4" />
-                        </svg>
-                    </div>
-                    <h3>Fully Configurable</h3>
-                    <p>Adjust max history size, polling interval, timestamps, and sound effects to your liking.</p>
+                <div class="why-card">
+                    <div class="why-emoji">💜</div>
+                    <h3>Free Forever</h3>
+                    <p>MIT licensed. No freemium upsells, no "pro" tiers. The full product is always free.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Use Cases Section -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="use-cases" id="use-cases">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="section-label">Use Cases</span>
-                <h2>Built for the way<br>you actually work.</h2>
-            </div>
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <div class="use-case-emoji">👨‍💻</div>
-                    <h3>Developers</h3>
-                    <p>Keep API keys, SQL queries, code snippets, and terminal commands at your fingertips. Pin the ones
-                        you use
-                        daily.</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-emoji">✍️</div>
-                    <h3>Writers & Editors</h3>
-                    <p>Juggle paragraphs, notes, and references without losing context. Edit clips before pasting into
-                        your
-                        document.</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-emoji">🎨</div>
-                    <h3>Designers</h3>
-                    <p>Copy color codes, asset URLs, and design tokens repeatedly without hunting through files. Search
-                        by hex
-                        code.</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-emoji">📊</div>
-                    <h3>Data & Research</h3>
-                    <p>Collect data points, URLs, and citations as you browse. Your clipboard becomes a research
-                        assistant.</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-emoji">💬</div>
-                    <h3>Customer Support</h3>
-                    <p>Pin canned responses and common links. One click to paste your most-used replies.</p>
-                </div>
-                <div class="use-case-card">
-                    <div class="use-case-emoji">🔐</div>
-                    <h3>DevOps & SRE</h3>
-                    <p>Keep SSH commands, kubectl snippets, and server addresses in your clipboard history for rapid
-                        incident
-                        response.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Documentation Section -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="docs" id="docs">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="section-label">Documentation</span>
-                <h2>Get started in<br>under a minute.</h2>
-            </div>
-
-            <!-- Installation -->
-            <div class="doc-block">
-                <h3>📦 Installation</h3>
-
-                <h4>macOS</h4>
-                <ol>
-                    <li>Download the latest <code>.dmg</code> from the <a
-                            href="https://github.com/Charlesprakasam/clipvault/releases/latest">Releases page</a></li>
-                    <li>Open the <code>.dmg</code> file</li>
-                    <li>Drag <strong>ClipVault.app</strong> to your <strong>Applications</strong> folder</li>
-                </ol>
-
-                <h4>Windows</h4>
-                <ol>
-                    <li>Download the latest <code>.exe</code> installer from the <a
-                            href="https://github.com/Charlesprakasam/clipvault/releases/latest">Releases page</a></li>
-                    <li>Run the setup file and follow the installation prompts</li>
-                </ol>
-
-                <h4>Bypassing macOS Security (First Launch Only)</h4>
-                <p>Because the app is open-source and not signed with a paid Apple certificate, macOS will block it on
-                    the first launch. To bypass this:</p>
-                <ol>
-                    <li>Open your <strong>Applications</strong> folder in Finder.</li>
-                    <li>Find <strong>ClipVault.app</strong>.</li>
-                    <li><strong>Right-click</strong> (or Control-click) the app icon and select <strong>Open</strong>.
-                    </li>
-                    <li>Click the <strong>Open</strong> button in the warning dialog.</li>
-                </ol>
-                <p>Alternatively, you can launch normally, then go to <strong>System Settings → Privacy &
-                        Security</strong> and click <strong>Open Anyway</strong>.</p>
-                <p>After bypassing, grant Accessibility permissions if prompted. ClipVault will appear as a 📋 clipboard
-                    icon in your menu bar.</p>
-            </div>
-
-            <!-- Keyboard Shortcuts -->
-            <div class="doc-block">
-                <h3>⌨️ Keyboard Shortcuts</h3>
-                <table class="shortcuts-table">
-                    <thead>
-                        <tr>
-                            <th>Shortcut</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>V</kbd> <span style="opacity: 0.5;">/</span>
-                                <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
-                            </td>
-                            <td>Toggle ClipVault window</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>⌘</kbd> + <kbd>F</kbd> <span style="opacity: 0.5;">/</span> <kbd>Ctrl</kbd> +
-                                <kbd>F</kbd>
-                            </td>
-                            <td>Focus the search bar</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>Esc</kbd></td>
-                            <td>Hide the window / close modals</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- How It Works -->
-            <div class="doc-block">
-                <h3>🔄 How It Works</h3>
-                <div class="how-it-works">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <strong>Copy anything</strong>
-                            <p>ClipVault monitors your clipboard every 800ms. When you copy text, it's automatically
-                                captured.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <strong>Browse & search</strong>
-                            <p>Press <kbd>⌘⇧V</kbd> (Mac) or <kbd>Ctrl+Shift+V</kbd> (Windows) to open ClipVault. Scroll
-                                through your history or type to search
-                                instantly.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <strong>Click to copy</strong>
-                            <p>Click any clip to copy it back to your clipboard. Use the action buttons to pin, edit, or
-                                delete.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Details -->
-            <div class="doc-block">
-                <h3>📋 Feature Guide</h3>
-                <div class="feature-docs">
-                    <details>
-                        <summary>Pinning Clips</summary>
-                        <p>Click the ★ star icon on any clip to pin it. Pinned clips:</p>
-                        <ul>
-                            <li>Always appear at the top of your list</li>
-                            <li>Survive "Clear All" — only unpinned clips are removed</li>
-                            <li>Have a green accent border for easy identification</li>
-                            <li>Are visible in the dedicated "Pinned" tab</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Editing Clips</summary>
-                        <p>Click the pencil ✏️ icon on any clip to open the edit modal. You can modify the text and
-                            save. This is
-                            useful for:</p>
-                        <ul>
-                            <li>Fixing typos before pasting</li>
-                            <li>Trimming extra whitespace or formatting</li>
-                            <li>Creating template snippets from copied text</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Search & Filter</summary>
-                        <p>The search bar supports real-time full-text search. Matching text is highlighted in yellow.
-                            You can also
-                            filter by:</p>
-                        <ul>
-                            <li><strong>All</strong> — shows every clip (default)</li>
-                            <li><strong>Pinned</strong> — shows only starred clips</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Settings</summary>
-                        <p>Click the ⚙️ gear icon to access settings:</p>
-                        <ul>
-                            <li><strong>Max clips</strong> — how many clips to keep (10–500, default: 100)</li>
-                            <li><strong>Poll interval</strong> — how often to check the clipboard (0.5s–5s)</li>
-                            <li><strong>Timestamps</strong> — show/hide relative timestamps</li>
-                            <li><strong>Sound</strong> — play a subtle click on copy</li>
-                            <li><strong>Start at login</strong> — launch ClipVault when you log in (Electron only)</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Building from Source</summary>
-                        <p>Clone and run locally:</p>
-                        <pre><code>git clone https://github.com/Charlesprakasam/clipvault.git
-cd clipvault
-npm install
-npm start          # run in dev mode
-npm run dist:mac   # build DMG</code></pre>
-                    </details>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- CTA / Download Section -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="cta">
+    <!-- ═══ CTA Section ═══ -->
+    <section class="cta" id="cta">
         <div class="cta-bg">
             <div class="orb orb-4"></div>
             <div class="orb orb-5"></div>
         </div>
         <div class="section-inner">
-            <h2>Ready to supercharge<br>your clipboard?</h2>
-            <p>Free, open source, and private. Download ClipVault and never lose a copied text again.</p>
-            <div class="cta-actions"
-                style="display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault-0.1.7-arm64.dmg"
-                    class="btn btn-primary btn-lg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
+            <h2>Ready to build with us?</h2>
+            <p>Star a repo, submit a PR, or just download and use our tools. The open source ecosystem thrives when
+                developers participate.</p>
+            <div class="cta-actions">
+                <a href="https://github.com/Charlesprakasam" class="btn btn-primary" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                     </svg>
-                    Mac (.dmg)
+                    Explore on GitHub
                 </a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault.Setup.0.1.7.exe"
-                    class="btn btn-windows btn-lg" style="background: rgba(0, 120, 212, 0.4);">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
-                    Win (.exe Installer)
-                </a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases/latest/download/ClipVault-0.1.7-Windows.msix"
-                    class="btn btn-windows btn-lg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                        <rect x="2" y="2" width="9" height="9" />
-                        <rect x="13" y="2" width="9" height="9" />
-                        <rect x="2" y="13" width="9" height="9" />
-                        <rect x="13" y="13" width="9" height="9" />
-                    </svg>
-                    Win (.msix Store app)
-                </a>
-            </div>
-            <div class="cta-meta">
-                macOS & Windows · Electron · Native Binaries
+                <a href="clipvault.html" class="btn btn-ghost">Try ClipVault First →</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Footer -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ═══ Footer ═══ -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-left">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-                </svg>
-                <span>ClipVault</span> · MIT License · Made with ❤️
+                <span>AILoopLabs</span> · MIT License · Made with 💜 by the community
             </div>
             <div class="footer-right">
-                <a href="https://github.com/Charlesprakasam/clipvault" target="_blank">GitHub</a>
-                <a href="https://github.com/Charlesprakasam/clipvault/releases" target="_blank">Releases</a>
-                <a href="https://github.com/Charlesprakasam/clipvault/issues" target="_blank">Issues</a>
+                <a href="https://github.com/Charlesprakasam" target="_blank">GitHub</a>
+                <a href="clipvault.html">ClipVault</a>
+                <a href="#">Blog</a>
             </div>
         </div>
     </footer>
@@ -549,7 +351,7 @@ npm run dist:mac   # build DMG</code></pre>
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.feature-card, .use-case-card, .doc-block, .step').forEach(el => {
+        document.querySelectorAll('.product-card, .why-card').forEach(el => {
             observer.observe(el);
         });
     </script>
